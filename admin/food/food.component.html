@@ -1,0 +1,54 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="rowIndex">
+        <th  *matHeaderCellDef> Index </th>
+        <td mat-cell *matCellDef="let element;index as i;"  style = "text-align: center;"> {{ i }} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nameFood">
+        <th  *matHeaderCellDef style = "text-align: center;"> Name </th>
+        <td mat-cell *matCellDef="let element" style = "text-align: center;"> {{element.nameFood}} </td>
+      </ng-container>
+  
+      <!-- Price Column -->
+      <ng-container matColumnDef="price" style = "text-align: center;">
+        <th  *matHeaderCellDef style = "text-align: center;"> Price</th>
+        <td mat-cell *matCellDef="let element" style = "text-align: center;"> {{element.price}} &euro; </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" style="background-color: #e6ffee;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+  <mat-paginator  [pageSize] = "4" [pageSizeOptions]="[4, 6, 8]" showFirstLastButtons></mat-paginator>
+</div>
+
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%"> 
+    <mat-card style="margin:10%; margin-top: 0.1em;">
+      <mat-card-title>About</mat-card-title>
+      <mat-card-content>
+        <p>
+          Made with <mat-icon>favorite</mat-icon> by Costin Valentina in 2020.<br />
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</div>
+
+<!-- <form #foodForm="ngForm" (ngSubmit)="onSubmit(foodForm)" flex>
+  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="foodService.selectedFood._id">
+  
+  <br /><label>Name :</label><br />
+  <input type="text" name="nameFood" #name="ngModel" [(ngModel)]="foodService.selectedFood.nameFood" placeholder="Enter food name" required>
+
+  <br /><label>Price :</label><br />
+  <input type="number" min = "0" style = "width:15%;" name="price" #name="ngModel" [(ngModel)]="foodService.selectedFood.price" placeholder="Price">
+
+  <div style = "text-align: center;">
+      <button class = "btnAdmin" type="button" (click)="resetForm(foodForm)">Reset</button>
+      <button  class = "btnAdmin" type="submit" [disabled]="!foodForm.valid">Submit</button>
+      <p *ngIf = "savedMsj">Saved successfully!</p>
+  </div>
+</form> -->

@@ -1,0 +1,10 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+table {
+    width: 100%;
+}
+  
+.mat-elevation-z8{
+    margin: 10%;
+    margin-top: 3%;
+}
